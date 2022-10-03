@@ -1,0 +1,12 @@
+<h1> Showing Dish </h1>
+
+<p><strong>category of dish:</strong><%= @dish.menu.name %></p>
+<p><strong>Name :</strong><%= @dish.name %></p>
+<p><strong>Price :</strong><%= @dish.cost %></p>
+<p><strong>Description :</strong><%= @dish.description %></p>
+
+
+<%= link_to "Edit", edit_dish_path(@dish) %>
+<%= link_to "Delete", dish_path(@dish),method: :delete, data: {confirm: "Are you sure?"} %>
+
+<%= link_to 'return to dishes',dishes_path %>

@@ -1,0 +1,21 @@
+<% if @menu.errors.any? %>
+<ul>
+  <% @menu.errors.full_messages.each do |m| %>
+  <%= m %>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_with(model: @menu,local: true) do |f| %>
+
+  <p>
+    <%= f.label :Name %><br/>
+    <%= f.text_field :name %>
+  </p>
+
+  <p><%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name, { :prompt => 'Select a Restaurant', :selected => @menu.restaurant_id }, { class: 'form-control' }) %></p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

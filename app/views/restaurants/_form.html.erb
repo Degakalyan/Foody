@@ -1,0 +1,30 @@
+<% if @restaurant.errors.any? %>
+<ul>
+  <% @restaurant.errors.full_messages.each do |m| %>
+  <%= m %>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_with(model: @restaurant,local: true) do |f| %>
+
+  <p>
+    <%= f.label :Name %><br/>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :Location %><br/>
+    <%= f.text_field :location %>
+  </p>
+
+  <p>
+    <%= f.label :Status %><br/>
+    <%= f.text_field :timings %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

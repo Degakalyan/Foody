@@ -1,0 +1,17 @@
+<%= form_with(model: [Review.new], local: true) do |f| %>
+  <p>
+    <%= f.label :Review %><br/>
+    <%= f.text_field :review %>
+  </p>
+
+  <p>
+    <%= f.label :Rating %><br/>
+    <%= f.number_field :rating %>
+  </p>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

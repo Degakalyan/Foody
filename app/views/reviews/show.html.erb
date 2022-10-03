@@ -1,0 +1,9 @@
+<h1> Review </h1>
+
+<p><strong>Review :</strong><%= @review.review %></p>
+<p><strong>Rating :</strong><%= @review.rating %></p>
+
+
+<%= link_to "Delete", review_path(@review),method: :delete, data: {confirm: "Are you sure?"} %>
+
+<%= link_to 'Home',current_user %>

@@ -1,0 +1,24 @@
+<% if @selected_dish.errors.any? %>
+<ul>
+  <% @selected_dish.errors.full_messages.each do |m| %>
+  <%= m %>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_with(model: @selected_dish,local: true) do |f| %>
+
+  <p>
+    <%= f.label :dish_id %><br/>
+    <%= f.number_field :dish_id %>
+  </p>
+  <p>
+    <%= f.label :cart_id %><br/>
+    <%= f.number_field :cart_id %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

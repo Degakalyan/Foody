@@ -1,0 +1,8 @@
+<h1> WELCOME TO FOODY </h1>
+<%= image_tag 'foodyimages/Foody_logo.jpg',width:'500px',height:'300px'%>
+<p><%= link_to 'Sign out',destroy_user_session_path,method: :delete %></p>
+<p><%= link_to 'Restaurants',restaurants_path %></p>
+<% if current_user.role == 'admin'  %>
+   <p><%= link_to 'users',users_path %></p>
+<% end %>
+<p> <%= link_to 'my_profile',current_user%> </p>

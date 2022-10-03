@@ -1,0 +1,32 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name: </th>
+      <th>Location: </th>
+      <th>Status: </th>
+      <th colspan="3"> Actions : </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Restaurant.all.each do |a| %>
+      <tr>
+        <td><%= a.name %></td>
+        <td><%= a.location %></td>
+        <td><%= a.timings %></td>
+        <td><%= link_to 'Show',restaurant_path(a)%></td>
+        <td>
+          <% if current_user.role == 'admin' %>
+              <%= link_to "Edit", edit_restaurant_path(a) %>
+              <%= link_to "Delete", restaurant_path(a),method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+</table>
+
+<% if current_user.role == 'admin' %>
+  <p>
+    <%= link_to 'create new restaurant',new_restaurant_path%>
+  </p>
+<% end %>

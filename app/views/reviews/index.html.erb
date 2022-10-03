@@ -1,0 +1,8 @@
+<h1> Review listing page </h1>
+
+<%= render 'reviews' %>
+
+<%= link_to 'Home',current_user %>
+<% if current_user.role != 'admin' %>
+<p><%= link_to 'Cart',carts_path %></p>
+<% end %>

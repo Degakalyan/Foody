@@ -1,0 +1,12 @@
+<h1> Dishes listing page </h1>
+<%= image_tag 'foodyimages/dish.jpg',width:'500px',height:'300px'%>
+<form class="search" action="/search">
+ <input class="search" name="q" type="text" placeholder="search" aria-label="Search">
+    <button class="search" type="submit">Search</button>
+</form>
+
+<%= render 'dish' %>
+<p><%= link_to 'back',menus_path %></p>
+<% if current_user.role != 'admin' %>
+<p><%= link_to 'Cart',carts_path %></p>
+<% end %>

@@ -1,0 +1,29 @@
+<h3>Review</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Review: </th>
+      <th>Rating: </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% Review.all.each do |a| %>
+      <tr>
+        <td><%= a.review %></td>
+        <td><%= a.rating %></td>
+        <td><%= link_to 'Show',review_path(a)%></td>
+        <td>
+              <% if current_user.role != 'admin' %>
+                <%= link_to "Delete", review_path(a),method: :delete, data: {confirm: "Are you sure?"} %>
+              <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+</table>
+<% if current_user.role != 'admin' %>
+  <p>
+    <%= link_to 'create new review',new_review_path%><br>
+  </p>
+<% end %>

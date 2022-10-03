@@ -1,0 +1,10 @@
+<h1> Showing menus </h1>
+
+
+<p><strong>Name :</strong><%= @menu.name %></p>
+<%= render "dish" %>
+
+<%= link_to "Edit", edit_menu_path(@menu) %>
+<%= link_to "Delete", menu_path(@menu),method: :delete, data: {confirm: "Are you sure?"} %>
+
+<%= link_to 'return to menus',menus_path %>

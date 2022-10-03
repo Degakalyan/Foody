@@ -1,0 +1,14 @@
+<h1> Showing selected_dishes </h1>
+<p><strong>Item :</strong><%= @selected_dish.dish.name %></p>
+<p><strong>Product :</strong><%= @selected_dish.dish_id %></p>
+<p><strong>Cart :</strong><%= @selected_dish.cart_id %></p>
+
+
+<%= link_to "Edit", edit_selected_dish_path(@selected_dish) %>
+<%= link_to "Delete", selected_dish_path(@selected_dish),method: :delete, data: {confirm: "Are you sure?"} %><br>
+
+
+
+<%= link_to 'cart',carts_path %><br>
+
+<%= link_to 'return to dishes',dishes_path %>

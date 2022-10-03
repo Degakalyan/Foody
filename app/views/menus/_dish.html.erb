@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>Category of Dish: </th>
+      <th>Name: </th>
+      <th>Price: </th>
+      <th>Description: </th>
+      <th colspan="3"> Actions : </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Dish.all.each do |a| %>
+      <tr>
+        <td><%= a.menu.name %></td>
+        <td><%= a.name %></td>
+        <td><%= a.cost %></td>
+        <td><%= a.description %></td>
+        <td><%= link_to 'Show',dish_path(a)%></td>
+        <td>
+              <% if current_user.role == 'admin' %>
+                <%= link_to "Edit", edit_dish_path(a) %>
+                <%= link_to "Delete", dish_path(a),method: :delete, data: {confirm: "Are you sure?"} %>
+              <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+</table>
+<% if current_user.role == 'admin' %>
+  <p>
+    <%= link_to 'create new dish',new_dish_path%><br>
+  </p>
+<% end %>

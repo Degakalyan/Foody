@@ -1,0 +1,32 @@
+<h1> selected_dishitems listing page </h1>
+<table>
+  <thead>
+    <tr>
+      <th>Dish : </th>
+      <th>Dish name :</th>
+      <th>Cart : </th>
+      <th>Price:</th>
+      <th colspan="4"> Actions : </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @selected_dishes.each do |a| %>
+      <tr>
+        <td><%= a.dish_id %></td>
+        <td><%= a.dish.name %></td>
+        <td><%= a.cart_id %></td>
+        <td><%=a.total_price%></td>
+        <td><%= link_to 'Show',selected_dish_path(a)%></td>
+        <td><%= link_to "Edit", edit_selected_dish_path(a) %></td>
+        <td><%= link_to "Delete", selected_dish_path(a),method: :delete, data: {confirm: "Are you sure?"} %></td>
+
+      </tr>
+      <% end %>
+    </tbody>
+</table>
+
+
+
+<%= link_to 'create new selected_dish',new_selected_dish_path%><br>
+<%= link_to 'return to dishes',dishes_path %><br>
+<%= link_to 'cart',carts_path %>
